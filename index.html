@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!--<link rel="icon" type="image/svg+xml" href="/vite.svg" />-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">-->
+    <link rel="stylesheet" href="public/style.css">
+    <title>Melvynx Wordle App Challenge in JavaScript Vanilla</title>
+  </head>
+  <body class="bg-gray-600 font-mono bg-gd h-full">
+    <div id="app" class="relative">
+      <div class="h-100 w-1/3 absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-1/4 hidden z-50" id="modal">
+        <div class="flex flex-col rounded border-2 border-white/80 bg-gradient-to-br from-white/80 to-white/80 p-8 text-white shadow-lg backdrop-blur-lg">
+          <h2 class="text-5xl text-center text-gray-600 my-2" id="result">Message</h2>
+          <p class="text-2xl text-center text-gray-600 my-2" id="response">reponse</p>
+          <div class="flex justify-center">
+            <button class="bg-transparent border-2 border-gray-600 text-gray-600 hover:bg-gray-800 w-30 hover:text-white font-bold py-2 px-4 rounded my-2">
+              Rejouer ?
+            </button>
+          </div>
+        </div>
+      </div>
+      <header class="flex justify-center content-center">
+        <h1 class="text-white p-7 text-2xl">Melvynx Wordle App Challenge in JavaScript Vanilla</h1>
+      </header>
+      <main class="mt-7">
+        <div id="grid" class="flex flex-row item-center justify-center">
+          <div class="shadow-[0_0_50px_20px_rgba(0,0,0,0.15)] bg-[rgba(0,0,0,0.15)] rounded">
+            <div class="flex flex-row item-center justify-center gap-1 mb-1 rounded" id="line-1">
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+            </div>
+            <div class="flex flex-row item-center justify-center gap-1 my-1" id="line-2">
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+            </div>
+            <div class="flex flex-row item-center justify-center gap-1 my-1" id="line-3">
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+            </div>
+            <div class="flex flex-row item-center justify-center gap-1 my-1" id="line-4">
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+            </div>
+            <div class="flex flex-row item-center justify-center gap-1 my-1" id="line-5">
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+            </div>
+            <div class="flex flex-row item-center justify-center gap-1 mt-1" id="line-6">
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+              <div class="border rounded size-16 text-white flex justify-center items-center text-2xl bg-transparent">.</div>
+            </div>
+          </div>
+        </div>
+        <div id="keyboard" class="mt-16">
+          <div class="flex flex-row item-center justify-center gap-2 my-2">
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="A">A</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="Z">Z</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="E">E</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="R">R</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="T">T</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="Y">Y</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="U">U</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="I">I</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="O">O</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="P">P</div>
+            <div class="border rounded h-16 px-2 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="Backspace">Backspace</div>
+          </div>
+          <div class="flex flex-row item-center justify-center gap-2 my-2">
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="Q">Q</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="S">S</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="D">D</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="F">F</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="G">G</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="H">H</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="J">J</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="K">K</div>
+            <div class="border rounded h-16 px-2 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="Enter">Enter</div>
+          </div>
+          <div class="flex flex-row item-center justify-center gap-2 my-2">
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="L">L</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="M">M</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="W">W</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="X">X</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="C">C</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="V">V</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="B">B</div>
+            <div class="border rounded size-16 text-white flex justify-center items-center text-2xl shadow-[0_3px_0_white] cursor-pointer keyBoard" id="N">N</div>
+          </div>
+        </div>
+      </main>
+      <footer></footer>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
