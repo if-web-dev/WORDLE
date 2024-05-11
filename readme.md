@@ -1,8 +1,4 @@
-﻿Here's the updated README.md in English:
-
----
-
-# Wordle in Vanilla JavaScript
+﻿# Wordle in Vanilla JavaScript
 
 This project is an implementation of the Wordle game in Vanilla JavaScript. Wordle is a word guessing game where the player must guess a mystery word within a certain number of attempts. Each attempt by the player is compared to the mystery word, and hints are given to indicate correct and misplaced letters.
 
