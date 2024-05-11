@@ -1,4 +1,8 @@
-﻿# Wordle in Vanilla JavaScript
+﻿## Screenshot
+
+![Screenshot of the Wordle game](./public/assets/Capture.PNG)
+
+# Wordle in Vanilla JavaScript
 
 This project is an implementation of the Wordle game in Vanilla JavaScript. Wordle is a word guessing game where the player must guess a mystery word within a certain number of attempts. Each attempt by the player is compared to the mystery word, and hints are given to indicate correct and misplaced letters.
 
@@ -55,10 +59,6 @@ To install and run this project locally, follow these steps:
 6. Open your web browser and go to the following URL: `http://localhost:3000` to play the Wordle game.
 
 That's it! You have now installed and run the project locally on your machine. Enjoy playing Wordle!
-
-## Screenshot
-
-![Screenshot of the Wordle game](./public/assets/Capture.PNG)
 
 ## Technologies Used
 
