@@ -73,4 +73,4 @@ Contributions are welcome! If you'd like to contribute to this project, feel fre
 
 ## Author
 
-This project was created by [if-web-dev](https://github.com/if-web-dev).
+This challenge was created by [Melvynx](https://github.com/Melvynx).
