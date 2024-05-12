@@ -100,7 +100,8 @@ const fillTheGrid = (keyPressed) => {
       resultReveal();
       if (currentLine === 6) {
         lost();
-      } else if (wordLine.join('').toUpperCase() === secretWord) {
+      } 
+      if (wordLine.join('').toUpperCase() === secretWord) {
         succed();
       } else {
         wordLine = Array(5).fill('.');

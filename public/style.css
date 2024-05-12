@@ -16,3 +16,19 @@
   background: radial-gradient(#52626d, #4B5963);
   background-size: cover;
 }
+
+.grid-cell {
+  @apply border rounded size-16 text-white flex justify-center items-center text-2xl
+}
+
+.line {
+  @apply flex flex-row items-center justify-center gap-1 mb-1 rounded
+}
+
+.keyboard-line {
+  @apply flex flex-row items-center justify-center gap-2 my-2
+}
+
+.keyboard-cell {
+  @apply border rounded size-16 text-white flex justify-center items-center text-2xl cursor-pointer
+}
