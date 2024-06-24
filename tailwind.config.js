@@ -1,11 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'selector',
   content: [
     "./index.html",
     "./*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'gd-dark': 'radial-gradient(#52626d, #4B5963)',
+      },
+    },
   },
   safeList: [
     'delay-[400ms]',

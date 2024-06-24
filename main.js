@@ -1,6 +1,7 @@
 import { templateGrid } from './templateGrid.js';
 import { templateKeyboard } from './templateKeyboard.js';
 import { words } from './words.js';
+import { initializeDarkMode } from './darkmode.js';
 import JSConfetti from 'js-confetti'
 
 
@@ -131,22 +132,22 @@ const resultReveal = () => {
     document.getElementById(wordLine[i]).classList.add("transition", "delay-[1600ms]", "ease-in-out", "duration-150");
 
     if (wordLine[i].toUpperCase() !== secretWord[i]) {
-      lines[i].classList.remove("bg-transparent");
+      lines[i].classList.remove("bg-[#e0e0e0]");
       lines[i].classList.add("bg-neutral-500");
       document.getElementById(wordLine[i]).classList.add("transition", "ease-in-out", "duration-150", "bg-neutral-500");
     }
     if (secretWord.includes(wordLine[i].toUpperCase())) {
-      lines[i].classList.remove("bg-transparent", "bg-neutral-500", "bg-gray-600");
+      lines[i].classList.remove("bg-[#e0e0e0]", "bg-neutral-500", "bg-gray-600");
       lines[i].classList.add("bg-amber-300");
       document.getElementById(wordLine[i]).classList.remove("bg-neutral-500");
       document.getElementById(wordLine[i]).classList.add("bg-amber-300");
     }
     if (wordLine[i].toUpperCase() === secretWord[i]) {
-      lines[i].classList.remove("bg-amber-300");
+      lines[i].classList.remove("bg-amber-300", "dark:bg-transparent");
       lines[i].classList.add("bg-green-500");
       document.getElementById(wordLine[i]).classList.remove("bg-amber-300");
       document.getElementById(wordLine[i]).classList.add("bg-green-500");
-      console.log(document.getElementById(wordLine[i]))
+      console.log(lines[i])
     }
     delay += 400;
   }
@@ -177,6 +178,10 @@ document.addEventListener("mouseup", (event) => {
   if (!modalIsOpen) {
     const divClicked = event.target;
     if (divClicked.classList.contains('keyBoard')) {
+      divClicked.classList.add('shadow-[0_3px_0_black]');
+      divClicked.classList.remove('translate-y-1', "delay-[1600ms]");
+    }
+    else if (divClicked.classList.contains('keyBoard') && document.documentElement.classList.contains('dark') ) {
       divClicked.classList.add('shadow-[0_3px_0_white]');
       divClicked.classList.remove('translate-y-1', "delay-[1600ms]");
     }
@@ -186,3 +191,7 @@ document.addEventListener("mouseup", (event) => {
 modal.querySelector("button").addEventListener("click", (event) => {
   closeModal();
 })
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  initializeDarkMode();
+});

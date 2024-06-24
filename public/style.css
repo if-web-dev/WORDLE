@@ -8,7 +8,7 @@
   padding: 0;
 }
 
-.bg-gd {
+.bg-gd-dark {
   height: 100vh;
   /* Full viewport height */
   width: 100vw;
@@ -17,8 +17,18 @@
   background-size: cover;
 }
 
+.bg-gd-white {
+  height: 100vh;
+  /* Full viewport height */
+  width: 100vw;
+  /* Full viewport width */
+  background: radial-gradient(#e0e0e0, #ffffff);
+  background-size: cover;
+}
+
+
 .grid-cell {
-  @apply border rounded size-16 text-white flex justify-center items-center text-2xl
+  @apply border rounded size-16 text-black border-black dark:text-white dark:border-white flex justify-center items-center text-2xl
 }
 
 .line {
@@ -30,5 +40,66 @@
 }
 
 .keyboard-cell {
-  @apply border rounded size-16 text-white flex justify-center items-center text-2xl cursor-pointer
+  @apply border rounded size-16 text-black border-black dark:text-white dark:border-white flex justify-center items-center text-2xl cursor-pointer
+}
+
+.checkbox-wrapper .tgl {
+  display: none;
+}
+.checkbox-wrapper .tgl + .tgl-btn {
+  background: #52626d;
+  border-radius: 2em;
+  padding: 6px;
+  transition: all 0.4s ease;
+  outline: 0;
+  display: block;
+  width: 4em;
+  height: 2em;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.checkbox-wrapper .tgl + .tgl-btn::before, .checkbox-wrapper .tgl + .tgl-btn::after {
+  position: relative;
+  display: block;
+  content: "";
+  height: 100%;
+}
+.checkbox-wrapper .tgl + .tgl-btn::before {
+  display: none;
+  width: 50%;
+}
+.checkbox-wrapper .tgl + .tgl-btn::after {
+  left: 0;
+  border-radius: 50%;
+  background: #fff;
+  width: unset;
+  aspect-ratio: 1;
+  transition: all 0.2s ease;
+}
+.checkbox-wrapper .tgl:checked + .tgl-btn {
+  background: #f0f0f0;
+}
+.checkbox-wrapper .tgl:checked + .tgl-btn:after {
+  transform: translateX(150%);
+  background: #52626d;
+}
+.checkbox-wrapper .tgl:hover + .tgl-btn {
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, ), 0px 0px 30px 0 rgba(0, 0, 0, ), 0px 0px 60px 0 rgba(0, 0, 0, );
+}
+.checkbox-wrapper .icon {
+  width: 20px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-invert);
+}
+.checkbox-wrapper .icon_sun {
+  left: 10%;
+}
+.checkbox-wrapper .icon_moon {
+  right: 10%;
 }
