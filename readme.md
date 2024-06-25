@@ -13,6 +13,7 @@ This project is an implementation of the Wordle game in Vanilla JavaScript. Word
 - Indication of correct and misplaced letters after each attempt.
 - Reset functionality to start a new game.
 - Confetti effects to celebrate victory.
+- Darkmode
 
 ## How to Play
 
