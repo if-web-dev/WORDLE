@@ -133,11 +133,11 @@ const resultReveal = () => {
 
     if (wordLine[i].toUpperCase() !== secretWord[i]) {
       lines[i].classList.remove("bg-[#e0e0e0]");
-      lines[i].classList.add("bg-neutral-500");
+      lines[i].classList.add("bg-neutral-500", 'dark:bg-neutral-500');
       document.getElementById(wordLine[i]).classList.add("transition", "ease-in-out", "duration-150", "bg-neutral-500");
     }
     if (secretWord.includes(wordLine[i].toUpperCase())) {
-      lines[i].classList.remove("bg-[#e0e0e0]", "bg-neutral-500", "bg-gray-600");
+      lines[i].classList.remove("bg-[#e0e0e0]", "bg-neutral-500", "dark:bg-neutral-500", "dark:bg-transparent");
       lines[i].classList.add("bg-amber-300");
       document.getElementById(wordLine[i]).classList.remove("bg-neutral-500");
       document.getElementById(wordLine[i]).classList.add("bg-amber-300");
